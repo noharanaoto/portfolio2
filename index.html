@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Color Learning Site</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+
+      <div id="all">
+        <div class="hamburger_btn" v-on:click='ActiveBtn=!ActiveBtn'>
+          <span class="line line_01" v-bind:class="{'btn_line01':ActiveBtn}"></span>
+          <span class="line line_02" v-bind:class="{'btn_line02':ActiveBtn}"></span>
+          <span class="line line_03" v-bind:class="{'btn_line03':ActiveBtn}"></span>
+        </div>
+        <!-- 目次 -->
+        <transition name="menu">
+          <div class="menu" v-show="ActiveBtn">
+              <ul>
+                  <li v-on:click="change('A')" v-bind:class="{'active': isActive === 'A'}">ホーム</li>
+                  <li v-on:click="change('B')" v-bind:class="{'active': isActive === 'B'}">色とは何か</li>
+                  <li v-on:click="change('C')" v-bind:class="{'active': isActive === 'C'}">色の表し方</li>
+                  <li v-on:click="change('D')" v-bind:class="{'active': isActive === 'D'}">代表的な色の使い方</li>
+                  <li v-on:click="change('E')" v-bind:class="{'active': isActive === 'E'}">参考文献</li>
+              </ul>
+          </div>
+        </transition>
+        <!-- 記事 -->
+        <div class="article">
+
+          <div v-if="isActive === 'A'">
+            <div id="title">
+              <h1>Color Learning Site</h1>
+              <hr>
+            </div>
+            <div id="contents">
+              <h2>このサイトについて</h2>
+              <p>色について少しでも知識がある人が、色の全体像をみて各要素の関係性をUIを使って理解できるサイト。作ろうと思ったきっかけは</p>
+              <ul>
+                <li>おしゃれなカラーパレットが簡単に作れる</li>
+                <li>今すぐ使える配色テクニック</li>
+                <li>色の属性を細かくいじれるサイト</li>
+              </ul>
+              <p>などのツールやサイトが沢山ある。<br>↓<br>これらのおかげで部分的な知識がついてきたが、それらの関係性がわからなく、いまいち色についての全体像を把握できない。
+              なので色の属性を細かくいじれるサイトをみても活用できない、少し踏み入った話に入っていけないなどを感じた。<br>↓<br>全体像をつかんで、
+              それぞれをUIを使ってわかりやすく解説しているサイトがあれば直感的に色を理解できる。</p>
+            </div>
+            <div id="footer">
+              <hr>
+              <p>nohara naoto</p>
+            </div>
+          </div>
+
+          <div v-else-if="isActive === 'B'">
+            <div id="title">
+              <h1>色とは何か</h1><hr>
+            </div>
+            <div id="contents">
+              <h2>色を認識する原理</h2>
+            </div>
+            <div id="footer">
+              <hr>
+              <p>nohara naoto</p>
+            </div>
+          </div>
+
+          <div v-else-if="isActive === 'C'">
+            <div id="title">
+              <h1>色の表し方</h1><hr>
+            </div>
+            <div id="contents">
+              <h2>色の三属性</h2>
+
+              <div class="hsl">
+                <div class="hslpanel" :style="{ backgroundColor: panelHSL}"></div>
+          
+                <div class="hsltext">
+                  <label class="huename" for="hueBar">色相(hue)</label>
+                  <label class="hueval" for="hueBar">{{ hueIn }}</label>
+                </div>
+                <input id="hueBar" class="hueBar" type="range" min="0" max="360" step="1" v-model="hueIn" />
+          
+                <div class="hsltext">
+                  <label class="saturationname" for="saturationBar">彩度(saturation)</label>
+                  <label class="saturationval" for="saturationBar">{{ saturationIn }}</label>
+                </div>
+                <input id="saturationBar" type="range" min="0" max="100" step="1" 
+                v-model="saturationIn" :style="{ background: saturationHSL}" />
+          
+                <div class="hsltext">
+                  <label class="lightnessname" for="lightnessBar">明度(lightness)</label>
+                  <label class="lightnessval" for="lightnessBar">{{ lightnessIn }}</label>
+                </div>
+                <input id="lightnessBar" type="range" min="0" max="100" step="1" 
+                v-model="lightnessIn" :style="{ background: lightnessHSL}" />
+              </div>
+
+              <h2>RGB</h2>
+
+              <div class="rgb">
+                <div class="rgbpanel" :style="{backgroundColor: panelColor}">
+                  <div class="colorCode"><p>{{ colorCode }}</p></div>
+                </div>
+                <div class="rgbtext">
+                  <label for="red">red</label>
+                  <label for="red">{{ red }}</label>
+                </div>
+                <input id="red" type="range" min="0" max="255" v-model="red">
+          
+                <div class="rgbtext">
+                  <label for="green">green</label>
+                  <label for="green">{{ green }}</label>
+                </div>
+                <input id="green" type="range" min="0" max="255" v-model="green">
+                
+                <div class="rgbtext">
+                  <label for="blue">blue</label>
+                  <label for="blue">{{ blue }}</label>
+                </div>
+                <input id="blue" type="range" min="0" max="255" v-model="blue">
+               </div>
+              
+            </div>
+            <div id="footer">
+              <hr>
+              <p>nohara naoto</p>
+            </div>
+          </div>
+
+          <div v-else-if="isActive === 'D'">
+            <div id="title">
+              <h1>代表的な色の使い方</h1><hr>
+            </div>
+            <div id="contents">
+              <h2>補色</h2>
+            </div>
+            <div id="footer">
+              <hr>
+              <p>nohara naoto</p>
+            </div>
+          </div>
+
+          <div v-else-if="isActive === 'E'">
+            <div id="title">
+              <h1>参考文献</h1><hr>
+            </div>
+            <div id="contents">
+              <h2>書籍</h2>
+              <p>なるほどデザイン</p>
+              <p>人を動かす「色」の科学</p>
+              <p>色彩学概論</p>
+              <p>デジタル色彩工学</p>
+              <p>動かして学ぶ！Vue.js開発入門</p>
+              <h2>Webサイト</h2>
+              <p><a href="https://ja.wikipedia.org/wiki/%E8%89%B2" target="_blank" rel="noopener noreferrer">色-Wikipedia</a></p>
+              <p><a href="https://www.ccs-inc.co.jp/museum/column/" target="_blank" rel="noopener noreferrer">コラム | 光と⾊の話</a></p>
+            </div>
+            <div id="footer">
+              <hr>
+              <p>nohara naoto</p>
+            </div>
+          </div>
+
+        </div><!-- article終わり -->
+      </div>
+
+    <script src="myscript.js"></script>
+  </body>
+</html>
