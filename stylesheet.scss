@@ -1,0 +1,231 @@
+:root{
+    --articlColor: #ffffff;
+    --manuColor: #707070;
+}
+
+.hamburger_btn {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    z-index: 50;
+    .line {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        width: 40px;
+        height: 4px;
+        background: #333333;
+        // text-align: center;
+    }
+    .line_01 {
+        top: 15px;
+        transition: 0.4s ease;
+    }
+      
+    .line_02 {
+        top: 33px;
+        transition: 0.4s ease;
+    }
+      
+    .line_03 {
+        top: 51px;
+        transition: 0.4s ease;
+    }
+
+    .btn_line01 {
+        transform: translateY(18px) rotate(-45deg);
+        transition: 0.4s ease;
+        background-color: var(--articlColor);
+    }
+      
+    .btn_line02 {
+        transition: 0.4s ease;
+        opacity: 0;
+    }
+      
+    .btn_line03 {
+        transform: translateY(-18px) rotate(45deg);
+        transition: 0.4s ease;
+        background-color: var(--articlColor);
+    }
+}
+  
+  /*サイドメニュー*/
+  
+  .menu-enter-active, .menu-leave-active {
+    transition: 0.4s;
+  }
+  
+  .menu-enter, .menu-leave-to {
+    opacity: 0;
+  }
+  
+.menu {
+    background-color: var(--manuColor);
+    z-index: 30;
+    padding: 2rem 1rem;
+    position: fixed;
+    width: 20rem;
+    height: 80rem;
+    top: 0;
+    right: 0;
+    ul{
+        list-style: none;
+        padding-left: 0;
+        color: #ffffff;
+      }
+    li{
+        cursor: pointer;
+        transition: .3s;
+        &:hover{
+            text-decoration: line-through;
+        }
+    }
+    li.active{
+        text-decoration: line-through;
+        cursor: auto;
+    }
+  }
+
+.article{
+    height: auto;
+    width: 100vw;
+    #title{
+        h1{
+            margin: 100px auto;
+            text-align: center;
+        }
+        hr{
+            width: 55vw;
+            border-top: 1px dashed;
+          }
+    }
+    #contents{
+        margin: 0 auto;
+        height: auto;
+        width: 55vw;
+    }
+    .hsl{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .hslpanel{
+            width: 400px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .hsltext{
+            width: 400px;
+            margin: 20px 0 10px 0;
+        //   display: flex;
+        //   justify-content: space-between;
+        }
+        input[type=range]{
+            width: 400px;
+            height: 10px;
+            border-radius: 30px;
+            box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+            // 選択表示の枠を消す
+            outline: 0;
+            // ブラウザによる描画を外す
+            appearance: none;
+            -webkit-appearance: none;
+            // ボタンの設定
+          &::-webkit-slider-thumb{
+              -webkit-appearance: none;
+              appearance: none;
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              border: 2px solid  var(--manuColor);
+              background-color: #fff;
+              box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+          }
+        }
+        .hueBar{
+            background: linear-gradient(to right,
+            hsl(0, 100%, 50%) 0%,
+            hsl(30, 100%, 50%) 8.3%,
+            hsl(60, 100%, 50%) 16.6%,
+            hsl(90, 100%, 50%) 25%,
+            hsl(120, 100%, 50%) 33.3%,
+            hsl(150, 100%, 50%) 41.6%,
+            hsl(180, 100%, 50%) 50%,
+            hsl(210, 100%, 50%) 58.3%,
+            hsl(240, 100%, 50%) 66.6%,
+            hsl(270, 100%, 50%) 75%,
+            hsl(300, 100%, 50%) 83.3%,
+            hsl(330, 100%, 50%) 91.6%,
+            hsl(360, 100%, 50%) 100%);
+          }
+                    
+    }
+
+    .rgb{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .rgbpanel {
+            width: 400px;
+            height: 200px;
+            border-radius: 10px;
+            position:relative;
+            .colorCode{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translateY(-50%) translateX(-50%);/*要素の大きさの半分ずつを戻す*/
+              width: 100px;
+              height: 50px;
+              border-radius: 10px;
+              background-color: #fff;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+          
+        .rgbtext{
+            width: 400px;
+            margin: 20px 0 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        input[type=range]{
+            width: 400px;
+            height: 10px;
+            border-radius: 30px;
+            box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+            // 選択表示の枠を消す
+            outline: 0;
+            // ブラウザによる描画を外す
+            appearance: none;
+            -webkit-appearance: none;
+            // ボタンの設定
+            &::-webkit-slider-thumb{
+              -webkit-appearance: none;
+              appearance: none;
+              width: 20px;
+              height: 20px;
+              border-radius: 50%;
+              border: 2px solid  #707070;
+              background-color: #fff;
+              box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+
+    #footer{
+        text-align: center;
+        margin-top: 100px;
+        hr{
+            width: 55vw;
+            border-top: 1px dashed;
+        }
+    }
+}

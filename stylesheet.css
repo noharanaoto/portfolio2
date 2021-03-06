@@ -1,0 +1,167 @@
+@charset "UTF-8";
+:root {
+  --articlColor: #ffffff;
+  --manuColor: #707070; }
+
+.hamburger_btn {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  z-index: 50; }
+  .hamburger_btn .line {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 40px;
+    height: 4px;
+    background: #333333; }
+  .hamburger_btn .line_01 {
+    top: 15px;
+    transition: 0.4s ease; }
+  .hamburger_btn .line_02 {
+    top: 33px;
+    transition: 0.4s ease; }
+  .hamburger_btn .line_03 {
+    top: 51px;
+    transition: 0.4s ease; }
+  .hamburger_btn .btn_line01 {
+    transform: translateY(18px) rotate(-45deg);
+    transition: 0.4s ease;
+    background-color: var(--articlColor); }
+  .hamburger_btn .btn_line02 {
+    transition: 0.4s ease;
+    opacity: 0; }
+  .hamburger_btn .btn_line03 {
+    transform: translateY(-18px) rotate(45deg);
+    transition: 0.4s ease;
+    background-color: var(--articlColor); }
+
+/*サイドメニュー*/
+.menu-enter-active, .menu-leave-active {
+  transition: 0.4s; }
+
+.menu-enter, .menu-leave-to {
+  opacity: 0; }
+
+.menu {
+  background-color: var(--manuColor);
+  z-index: 30;
+  padding: 2rem 1rem;
+  position: fixed;
+  width: 20rem;
+  height: 80rem;
+  top: 0;
+  right: 0; }
+  .menu ul {
+    list-style: none;
+    padding-left: 0;
+    color: #ffffff; }
+  .menu li {
+    cursor: pointer;
+    transition: .3s; }
+    .menu li:hover {
+      text-decoration: line-through; }
+  .menu li.active {
+    text-decoration: line-through;
+    cursor: auto; }
+
+.article {
+  height: auto;
+  width: 100vw; }
+  .article #title h1 {
+    margin: 100px auto;
+    text-align: center; }
+  .article #title hr {
+    width: 55vw;
+    border-top: 1px dashed; }
+  .article #contents {
+    margin: 0 auto;
+    height: auto;
+    width: 55vw; }
+  .article .hsl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; }
+    .article .hsl .hslpanel {
+      width: 400px;
+      height: 200px;
+      border-radius: 10px; }
+    .article .hsl .hsltext {
+      width: 400px;
+      margin: 20px 0 10px 0; }
+    .article .hsl input[type=range] {
+      width: 400px;
+      height: 10px;
+      border-radius: 30px;
+      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+      outline: 0;
+      appearance: none;
+      -webkit-appearance: none; }
+      .article .hsl input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid var(--manuColor);
+        background-color: #fff;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); }
+    .article .hsl .hueBar {
+      background: linear-gradient(to right, red 0%, #ff8000 8.3%, yellow 16.6%, #80ff00 25%, lime 33.3%, #00ff80 41.6%, cyan 50%, #0080ff 58.3%, blue 66.6%, #8000ff 75%, magenta 83.3%, #ff0080 91.6%, red 100%); }
+  .article .rgb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; }
+    .article .rgb .rgbpanel {
+      width: 400px;
+      height: 200px;
+      border-radius: 10px;
+      position: relative; }
+      .article .rgb .rgbpanel .colorCode {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        /*要素の大きさの半分ずつを戻す*/
+        width: 100px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+    .article .rgb .rgbtext {
+      width: 400px;
+      margin: 20px 0 10px 0;
+      display: flex;
+      justify-content: space-between; }
+    .article .rgb input[type=range] {
+      width: 400px;
+      height: 10px;
+      border-radius: 30px;
+      box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+      outline: 0;
+      appearance: none;
+      -webkit-appearance: none; }
+      .article .rgb input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid  #707070;
+        background-color: #fff;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); }
+  .article #footer {
+    text-align: center;
+    margin-top: 100px; }
+    .article #footer hr {
+      width: 55vw;
+      border-top: 1px dashed; }
+
+/*# sourceMappingURL=stylesheet.css.map */
