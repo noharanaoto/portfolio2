@@ -110,7 +110,7 @@ let all = new Vue({
     },
     data: {
       ActiveBtn: false,
-      isActive: 'D',
+      isActive: 'A',
     },
     methods: {
         change: function(num){
