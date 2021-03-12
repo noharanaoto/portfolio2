@@ -118,6 +118,10 @@ body {
           width: 100%;
           max-width: 100%;
           height: auto; }
+        #all .main .page .article .contents a {
+          color: var(--fourthColor); }
+          #all .main .page .article .contents a:hover {
+            opacity: 0.5; }
   #all .footer {
     height: 100px;
     display: flex;

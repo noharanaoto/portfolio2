@@ -156,7 +156,12 @@ body{
                         max-width: 100%;
                         height: auto;
                     }
-
+                    a{
+                        color: var(--fourthColor);
+                        &:hover{
+                            opacity: 0.5;
+                        }
+                    }
                 }
             }
         }
