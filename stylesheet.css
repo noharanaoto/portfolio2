@@ -1,5 +1,8 @@
-@charset "UTF-8";
 :root {
+  font-size: 25px; }
+
+* {
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   --firstcolor: #ffffff;
   --secondcolor: #ebebeb;
   --thirdcolor: #adadad;
@@ -7,20 +10,31 @@
   --fifthcolor: #333333; }
 
 body {
-  margin: 0;
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; }
+  margin: 0; }
 
 #all {
-  background-color: var(--secondcolor); }
+  color: var(--fifthcolor);
+  font-size: 0.65rem; }
+  @media screen and (max-width: 959px) {
+    #all {
+      font-size: 0.6rem; } }
   #all .header {
     width: 100%;
     height: 100px;
-    /*サイドメニュー*/ }
+    background-color: var(--firstcolor);
+    display: flex;
+    align-items: center; }
     #all .header .btn {
       display: flex;
       justify-content: space-between;
-      width: 55vw;
+      width: 880px;
       margin: 0 auto; }
+      @media screen and (max-width: 959px) {
+        #all .header .btn {
+          width: 528px; } }
+      @media screen and (max-width: 589px) {
+        #all .header .btn {
+          width: 100vw; } }
       #all .header .btn .home {
         width: 70px;
         height: 70px;
@@ -29,43 +43,43 @@ body {
         align-items: center;
         cursor: pointer; }
         #all .header .btn .home img {
-          width: 44px;
-          height: 44px; }
+          width: 35px;
+          height: 35px; }
         #all .header .btn .home:hover {
           opacity: 0.5;
           transition: 0.4s; }
-      #all .header .btn .hamburger_btn {
+      #all .header .btn .hamburger {
         width: 70px;
         height: 70px;
         cursor: pointer;
         z-index: 50;
         position: relative; }
-        #all .header .btn .hamburger_btn .line {
+        #all .header .btn .hamburger .line {
           position: absolute;
           top: 0;
-          left: 15px;
-          width: 40px;
-          height: 4px;
+          left: 8.75px;
+          width: 35px;
+          height: 3px;
           background: var(--fifthcolor);
           border-radius: 10px; }
-        #all .header .btn .hamburger_btn .line_01 {
-          top: 15px;
+        #all .header .btn .hamburger .line_01 {
+          top: 17.5px;
           transition: 0.4s ease; }
-        #all .header .btn .hamburger_btn .line_02 {
-          top: 33px;
+        #all .header .btn .hamburger .line_02 {
+          top: 33.5px;
           transition: 0.4s ease; }
-        #all .header .btn .hamburger_btn .line_03 {
-          top: 51px;
+        #all .header .btn .hamburger .line_03 {
+          top: 49.5px;
           transition: 0.4s ease; }
-        #all .header .btn .hamburger_btn .btn_line01 {
-          transform: translateY(18px) rotate(-45deg);
+        #all .header .btn .hamburger .btn_line01 {
+          transform: translateY(16px) rotate(-45deg);
           transition: 0.4s ease;
           background-color: var(--firstcolor); }
-        #all .header .btn .hamburger_btn .btn_line02 {
+        #all .header .btn .hamburger .btn_line02 {
           transition: 0.4s ease;
           opacity: 0; }
-        #all .header .btn .hamburger_btn .btn_line03 {
-          transform: translateY(-18px) rotate(45deg);
+        #all .header .btn .hamburger .btn_line03 {
+          transform: translateY(-16px) rotate(45deg);
           transition: 0.4s ease;
           background-color: var(--firstcolor); }
     #all .header .menu-enter-active, #all .header .menu-leave-active {
@@ -87,43 +101,58 @@ body {
         padding-left: 0;
         text-align: center;
         color: var(--firstcolor); }
-      #all .header .menu li {
-        font-size: 20px;
-        width: 300px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid;
-        cursor: pointer;
-        transition: .3s; }
-        #all .header .menu li:hover {
-          text-decoration: line-through;
-          color: var(--thirdcolor); }
-      #all .header .menu li.active {
-        text-decoration: line-through; }
-  #all .main .page {
-    background-color: var(--firstcolor);
-    width: 55vw;
-    margin: 0 auto;
-    border-radius: 10px; }
-    #all .main .page .article {
-      width: 50vw;
-      margin: 0 auto; }
-      #all .main .page .article .title {
-        text-align: center; }
-        #all .main .page .article .title h1 {
-          padding-top: 50px; }
-      #all .main .page .article .contents {
-        padding-bottom: 50px; }
-        #all .main .page .article .contents img {
+        #all .header .menu ul li {
+          width: 300px;
+          font-size: 25px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          border-bottom: 2px solid;
+          cursor: pointer;
+          transition: .3s; }
+          #all .header .menu ul li:hover {
+            color: var(--thirdcolor); }
+  #all .main {
+    background-color: var(--secondcolor);
+    display: flex;
+    flex-direction: column; }
+    #all .main .page {
+      width: 880px;
+      margin: 50px auto;
+      border-radius: 10px;
+      background-color: var(--firstcolor); }
+      @media screen and (max-width: 959px) {
+        #all .main .page {
+          width: 528px; } }
+      @media screen and (max-width: 589px) {
+        #all .main .page {
+          width: 100vw;
+          border-radius: 0px; } }
+      #all .main .page .article {
+        width: 800px;
+        margin: 0 auto; }
+        @media screen and (max-width: 959px) {
+          #all .main .page .article {
+            width: 480px; } }
+        @media screen and (max-width: 589px) {
+          #all .main .page .article {
+            width: 90vw; } }
+        #all .main .page .article .title {
           width: 100%;
-          max-width: 100%;
-          height: auto; }
-        #all .main .page .article .contents a {
-          color: var(--fourthColor); }
-          #all .main .page .article .contents a:hover {
-            opacity: 0.5; }
+          text-align: center;
+          margin-top: 50px; }
+        #all .main .page .article .contents {
+          margin-bottom: 50px; }
+          #all .main .page .article .contents img {
+            width: 100%;
+            max-width: 100%; }
+          #all .main .page .article .contents a {
+            color: var(--fourthColor); }
+            #all .main .page .article .contents a:hover {
+              opacity: 0.5; }
   #all .footer {
     height: 100px;
+    color: var(--firstcolor);
+    background-color: var(--fifthcolor);
     display: flex;
     justify-content: center;
     align-items: center; }
@@ -135,15 +164,23 @@ body {
     outline: 0;
     appearance: none;
     -webkit-appearance: none; }
+    @media screen and (max-width: 959px) {
+      #all input[type=range] {
+        width: 300px;
+        height: 7px; } }
     #all input[type=range]::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      border: 2px solid var(--fourthColor);
+      border: 1px solid var(--fourthColor);
       background-color: #fff;
       box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2); }
+      @media screen and (max-width: 959px) {
+        #all input[type=range]::-webkit-slider-thumb {
+          width: 15px;
+          height: 15px; } }
   #all .hsl, #all .rgb {
     display: flex;
     flex-direction: column;
@@ -154,10 +191,17 @@ body {
       justify-content: space-between;
       width: 400px;
       margin: 20px 0 10px 0; }
+      @media screen and (max-width: 959px) {
+        #all .hsl .hsltext, #all .hsl .rgbtext, #all .rgb .hsltext, #all .rgb .rgbtext {
+          width: 300px; } }
     #all .hsl .hslpanel, #all .hsl .rgbpanel, #all .rgb .hslpanel, #all .rgb .rgbpanel {
       width: 400px;
       height: 200px;
       border-radius: 10px; }
+      @media screen and (max-width: 959px) {
+        #all .hsl .hslpanel, #all .hsl .rgbpanel, #all .rgb .hslpanel, #all .rgb .rgbpanel {
+          width: 300px;
+          height: 150px; } }
   #all .hsl .hueBar {
     background: linear-gradient(to right, red 0%, #ff8000 8.3%, yellow 16.6%, #80ff00 25%, lime 33.3%, #00ff80 41.6%, cyan 50%, #0080ff 58.3%, blue 66.6%, #8000ff 75%, magenta 83.3%, #ff0080 91.6%, red 100%); }
   #all .rgb .rgbpanel {
@@ -167,7 +211,6 @@ body {
       top: 50%;
       left: 50%;
       transform: translateY(-50%) translateX(-50%);
-      /*要素の大きさの半分ずつを戻す*/
       width: 100px;
       height: 50px;
       border-radius: 10px;
@@ -175,5 +218,9 @@ body {
       display: flex;
       justify-content: center;
       align-items: center; }
+      @media screen and (max-width: 959px) {
+        #all .rgb .rgbpanel .colorCode {
+          width: 75px;
+          height: 37px; } }
 
 /*# sourceMappingURL=stylesheet.css.map */

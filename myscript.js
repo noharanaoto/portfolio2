@@ -1,4 +1,4 @@
-let HslPick = {
+let HSLPick = {
   template:`
   <div class="hsl">
   <div class="hslpanel" :style="{ backgroundColor: panelHSL}"></div>
@@ -45,7 +45,7 @@ let HslPick = {
   },
 }
 
-let RgbPick = {
+let RGBPick = {
   template:`
   <div class="rgb">
   <div class="rgbpanel" :style="{backgroundColor: panelColor}">
@@ -105,8 +105,8 @@ let RgbPick = {
 let all = new Vue({
     el: '#all',
     components: {
-      'hsl-pick': HslPick,
-      'rgb-pick': RgbPick
+      'hsl-pick': HSLPick,
+      'rgb-pick': RGBPick
     },
     data: {
       ActiveBtn: false,

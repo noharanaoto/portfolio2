@@ -3,138 +3,138 @@
   <head>
     <meta charset="utf-8">
     <title>Color Learning Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
   <body>
 
-      <div id="all">
-        <div class="header">
-          <div class="btn">
-            <div class="home" v-on:click="change('A')" v-bind:class="{'active': isActive === 'A'}">
-              <img src="image/home.png" alt="">
+    <div id="all">
+      <div class="header">
+        <div class="btn">
+          <div class="home" v-on:click="change('A')" v-bind:class="{'active': isActive === 'A'}">
+            <img src="image/home.png" alt="">
+          </div>
+          <div class="hamburger" v-on:click='ActiveBtn=!ActiveBtn'>
+            <span class="line line_01" v-bind:class="{'btn_line01':ActiveBtn}"></span>
+            <span class="line line_02" v-bind:class="{'btn_line02':ActiveBtn}"></span>
+            <span class="line line_03" v-bind:class="{'btn_line03':ActiveBtn}"></span>
+          </div>
+        </div>
+        <!-- 目次 -->
+        <transition name="menu">
+          <div class="menu" v-show="ActiveBtn">
+              <ul>
+                <li v-on:click="change('A'); ActiveBtn=!ActiveBtn" v-bind:class="{'active': isActive === 'A'}">Home</li>
+                <li v-on:click="change('B'); ActiveBtn=!ActiveBtn" v-bind:class="{'active': isActive === 'B'}">色とは何か</li>
+                <li v-on:click="change('C'); ActiveBtn=!ActiveBtn" v-bind:class="{'active': isActive === 'C'}">色の表し方</li>
+                <li v-on:click="change('D'); ActiveBtn=!ActiveBtn" v-bind:class="{'active': isActive === 'D'}">参考</li>
+              </ul>
+          </div>
+        </transition>
+      </div>
+      <!-- 記事 -->
+      <div class="main">
+        <div class="page">
+          <div class="article" v-if="isActive === 'A'">
+            <div class="title">
+              <h1>Home</h1>
             </div>
-            <div class="hamburger_btn" v-on:click='ActiveBtn=!ActiveBtn'>
-              <span class="line line_01" v-bind:class="{'btn_line01':ActiveBtn}"></span>
-              <span class="line line_02" v-bind:class="{'btn_line02':ActiveBtn}"></span>
-              <span class="line line_03" v-bind:class="{'btn_line03':ActiveBtn}"></span>
+            <div class="contents">
+              <h2>このサイトについて</h2>
+              <p>このサイトは「色について少しでも知識がある人が、色の全体像をみて各要素の関係性をシンプルな図やUIを使って理解できるサイト」を目標に作ったサイトです。作ろうと思ったきっかけは</p>
+              <ul>
+                <li>おしゃれなカラーパレットが簡単に作れる</li>
+                <li>今すぐ使える配色テクニック</li>
+                <li>色の属性を細かくいじれるサイト</li>
+              </ul>
+              <p>などのツールやサイトが沢山登場した。<br>↓<br>これらのおかげで部分的な知識がついてきたが、それらの関係性がわからなく、いまいち色についての全体像を把握できない。
+              なので色の属性を細かくいじれるサイトをみても活用できない、少し踏み入った話に入っていけない、などを感じた。<br>↓<br>
+              そこで、それぞれの要素をシンプルな図やUIを使ってわかりやすく解説しているサイトがあれば、色の全体像や各要素の関係性を理解できるのではないかと考えた。</p>
+              <h2>使用したもの</h2>
+              <p>UI製作にはVue.jsを、図の作成はAdobe Illustratorを用いました。その他参考にしたものは参考ページにまとめてあります。</p>
+              
             </div>
           </div>
-          <!-- 目次 -->
-          <transition name="menu">
-            <div class="menu" v-show="ActiveBtn">
-                <ul>
-                  <li v-on:click="change('A'); ActiveBtn=!ActiveBtn" v-bind:class="{'active': isActive === 'A'}">Home</li>
-                  <li v-on:click="change('B'); ActiveBtn=!ActiveBtn" v-bind:class="{'active': isActive === 'B'}">色とは何か</li>
-                  <li v-on:click="change('C'); ActiveBtn=!ActiveBtn" v-bind:class="{'active': isActive === 'C'}">色の表し方</li>
-                  <li v-on:click="change('D'); ActiveBtn=!ActiveBtn" v-bind:class="{'active': isActive === 'D'}">参考</li>
-                </ul>
-            </div>
-          </transition>
-        </div>
-        <!-- 記事 -->
-        <div class="main">
-          <div class="page">
 
-            <div class="article" v-if="isActive === 'A'">
-              <div class="title">
-                <h1>About</h1>
-              </div>
-              <div class="contents">
-                <h2>このサイトについて</h2>
-                <p>このサイトは「色について少しでも知識がある人が、色の全体像をみて各要素の関係性をシンプルな図やUIを使って理解できるサイト」を目標に作ったサイトです。作ろうと思ったきっかけは</p>
-                <ul>
-                  <li>おしゃれなカラーパレットが簡単に作れる</li>
-                  <li>今すぐ使える配色テクニック</li>
-                  <li>色の属性を細かくいじれるサイト</li>
-                </ul>
-                <p>などのツールやサイトが沢山ある。<br>↓<br>これらのおかげで部分的な知識がついてきたが、それらの関係性がわからなく、いまいち色についての全体像を把握できない。
-                なので色の属性を細かくいじれるサイトをみても活用できない、少し踏み入った話に入っていけない、などを感じた。<br>↓<br>全体像をつかんで、
-                それぞれをUIを使ってわかりやすく解説しているサイトがあれば直感的に色を理解できる。</p>
-                <h2>使用したもの</h2>
-                <p>UI製作にはVue.jsを、図の作成はAdobe Illustratorを用いました。その他参考にしたものは参考ページにまとめてあります。</p>
-              </div>
+          <div class="article" v-else-if="isActive === 'B'">
+            <div class="title">
+              <h1>色とは何か</h1>
+              <p>色が認識される過程と色の種類について説明します</p>
             </div>
-
-            <div class="article" v-else-if="isActive === 'B'">
-              <div class="title">
-                <h1>色とは何か</h1>
-                <p>色が認識される過程と色の種類について説明します</p>
-              </div>
-              <div class="contents">
-                <h2>色を認識する原理</h2>
-                <p>色とは〜であるというように、踏み入った話はここでは触れずに、なるべく全体の理解に重きを置いて話を進めていきます。
-                  身の回りにある物の色というのは「光が物に当たり、その光が物の表面で反射され、その光が目に入り信号が神経を通って脳に到達し色を認識する」ということで見えています。
-                  この流れを図にするとこんな感じです。ここでは太陽の光がりんごに当たり、りんご表面で反射した光が目に入り脳へ信号がいき色が認識されます。
-                </p>
-                <div><img src="image/route.png" alt=""></div>
-                <h2>色の種類</h2>
-                <p>色が見える仕組みがわかったところで、次は色の分類について説明します。色は光が目に届くまでの経路の違いで3つに分類されます。まず一つ目は光が直接目に届くことで見える光源色。光が物に当たり反射してその光が目に届くことで見える物体色。そしてステンドグラスのように光が物を透過して、その光が目に届くことで見える透過色です。図にするとこんな感じです。</p>
-                <div><img src="image/colortype.png" alt=""></div>
-              </div>
+            <div class="contents">
+              <h2>色を認識する原理</h2>
+              <p>色とは〜であるというように、踏み入った話はここでは触れずに、なるべく全体の理解に重きを置いて話を進めていきます。
+                身の回りにある物の色というのは「光が物に当たり、その光が物の表面で反射され、その光が目に入り信号が神経を通って脳に到達し色を認識する」ということで見えています。
+                この流れを図にするとこんな感じです。ここでは太陽の光がりんごに当たり、りんご表面で反射した光が目に入り脳へ信号がいき色が認識されます。
+              </p>
+              <div><img src="image/route.png" alt=""></div>
+              <h2>色の種類</h2>
+              <p>色が見える仕組みがわかったところで、次は色の分類について説明します。色は光が目に届くまでの経路の違いで3つに分類されます。まず一つ目は光が直接目に届くことで見える光源色。光が物に当たり反射してその光が目に届くことで見える物体色。そしてステンドグラスのように光が物を透過して、その光が目に届くことで見える透過色です。図にするとこんな感じです。</p>
+              <div><img src="image/colortype.png" alt=""></div>
             </div>
+          </div>
 
-            <div class="article" v-else-if="isActive === 'C'">
-              <div class="title">
-                <h1>色の表し方</h1>
-                <p>色の三属性から表色系そして、現在使われている主要な色の表し方について説明します</p>
-              </div>
-              <div class="contents">
-                <h2>色の三属性</h2>
-                <p>色の三属性は色相、彩度、明度の三つです。ますそれぞれについて簡単に説明します。<br>
-                色相は赤・黄・緑などの根本的な色の性質の違いを表すもので、光の波長の違いとほぼ同じです。ですが青と赤の間に対応する波長がないため完全には同じではない点に注意です。<br>
-                彩度は色の鮮やかさを表します。値が小さければ色がくすみ、値が大きければ色が鮮やかに（原色に近づき）ます。<br>
-                明度は色の明るさを表します。値が小さければ色は暗くなっていき、大きければ色は明るくなっていきます。<br>
-                では実際に三つの値をいじって色がどのように変化するか見てみましょう。</p>
-                <hsl-pick></hsl-pick>
-                <h2>表色系</h2>
-                <p>表色系とは色の表し方の総称です。先ほどの色の三属性はこの表色系が確立される前から認識されているので、三属性を元に現在の表色系が構成されています。ですので三属性という考え方はこの表色系の分類には属さないので注意です。では表色系の全体図を示します。
-                </p>
-                <div><img src="image/colorsystem.png" alt=""></div>
-                <p>まず大きく顕色系と混色系に分けられ、さらに顕色系は色名系と色票系に分けられます。歴史的には顕色系が確立され、徐々に色を定量的に表すことができるようになり混色系が確立してきました。私たちが普段よく耳にするRGB、HSLなどは混色系に属し、マンセルの色相環で有名なマンセル表色系は顕色系の中の色票系に分類されます。
-                </p>
-                <h2>RGB</h2>
-                <p>では一番私たちが耳にするであろうRGBについて説明します。その名の通り赤(Red)、緑(Green)、青(Blue)の3色でさまざまな色を表現する方式です。この赤緑青は光の三原色とも呼ばれ、スマートフォンやPCの画面の最小単位もこの3色で成り立っています。実際に下のUIを操作して、RGBを変えると色が変化するのがわかると思います。
-                </p>
-                <rgb-pick></rgb-pick>
-              </div>
+          <div class="article" v-else-if="isActive === 'C'">
+            <div class="title">
+              <h1>色の表し方</h1>
+              <p>色の三属性から表色系そして、現在使われている主要な色の表し方について説明します</p>
             </div>
+            <div class="contents">
+              <h2>色の三属性</h2>
+              <p>色の三属性は色相、彩度、明度の三つです。ますそれぞれについて簡単に説明します。<br>
+              色相は赤・黄・緑などの根本的な色の性質の違いを表すもので、光の波長の違いとほぼ同じです。ですが青と赤の間に対応する波長がないため完全には同じではない点に注意です。<br>
+              彩度は色の鮮やかさを表します。値が小さければ色がくすみ、値が大きければ色が鮮やかに（原色に近づき）ます。<br>
+              明度は色の明るさを表します。値が小さければ色は暗くなっていき、大きければ色は明るくなっていきます。<br>
+              では実際に三つの値をいじって色がどのように変化するか見てみましょう。</p>
+              <hsl-pick></hsl-pick>
+              <h2>表色系</h2>
+              <p>表色系とは色の表し方の総称です。先ほどの色の三属性はこの表色系が確立される前から認識されているので、三属性を元に現在の表色系が構成されています。ですので三属性という考え方はこの表色系の分類には属さないので注意です。では表色系の全体図を示します。
+              </p>
+              <div><img src="image/colorsystem.png" alt=""></div>
+              <p>まず大きく顕色系と混色系に分けられ、さらに顕色系は色名系と色票系に分けられます。歴史的には顕色系が確立され、徐々に色を定量的に表すことができるようになり混色系が確立してきました。私たちが普段よく耳にするRGB、HSLなどは混色系に属し、マンセルの色相環で有名なマンセル表色系は顕色系の中の色票系に分類されます。
+              </p>
+              <h2>RGB</h2>
+              <p>では一番私たちが耳にするであろうRGBについて説明します。その名の通り赤(Red)、緑(Green)、青(Blue)の3色でさまざまな色を表現する方式です。この赤緑青は光の三原色とも呼ばれ、スマートフォンやPCの画面の最小単位もこの3色で成り立っています。実際に下のUIを操作して、RGBを変えると色が変化するのがわかると思います。
+              </p>
+              <rgb-pick></rgb-pick>
+            </div>
+          </div>
 
-            <div class="article" v-else-if="isActive === 'D'">
-              <div class="title">
-                <h1>参考</h1>
-              </div>
-              <div class="contents">
-                <h2>書籍</h2>
-                <p>サイトのレイアウトや配色の参考にした書籍</p>
-                <p><a href="http://naruhodo-design.com/" target="_blank" rel="noopener noreferrer">なるほどデザイン</a></p>
-                <p>記事の内容を書く時に参考した書籍</p>
-                <p><a href="https://www.sbcr.jp/product/4797398212/" target="_blank" rel="noopener noreferrer">人を動かす「色」の科学</a></p>
-                <p><a href="https://www.amazon.co.jp/%E8%89%B2%E5%BD%A9%E5%AD%A6%E6%A6%82%E8%AA%AC-%E5%8D%83%E3%80%85%E5%B2%A9-%E8%8B%B1%E5%BD%B0/dp/4130820850" target="_blank" rel="noopener noreferrer">色彩学概論</a></p>
-                <p><a href="https://www.amazon.co.jp/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E8%89%B2%E5%BD%A9%E5%B7%A5%E5%AD%A6-%E8%B0%B7%E5%8F%A3-%E6%85%B6%E6%B2%BB/dp/4320123298" target="_blank" rel="noopener noreferrer">デジタル色彩工学</a></p>
-                <p>Vue.jsを学ぶ時に読んだ書籍</p>
-                <p><a href="https://www.amazon.co.jp/%E5%8B%95%E3%81%8B%E3%81%97%E3%81%A6%E5%AD%A6%E3%81%B6%EF%BC%81Vue-js%E9%96%8B%E7%99%BA%E5%85%A5%E9%96%80-%E6%A3%AE%E5%B7%A7%E5%B0%9A-ebook/dp/B07KPTGZ4C" target="_blank" rel="noopener noreferrer">動かして学ぶ！Vue.js開発入門</a></p>
-                <h2>Webサイト-内容-</h2>
-                <p>記事の内容を書く時に参考にしたサイト</p>
-                <p><a href="https://ja.wikipedia.org/wiki/%E8%89%B2" target="_blank" rel="noopener noreferrer">色-Wikipedia</a></p>
-                <p><a href="https://www.ccs-inc.co.jp/museum/column/" target="_blank" rel="noopener noreferrer">コラム | 光と⾊の話</a></p>
-                <h2>Webサイト-レイアウトやデザイン-</h2>
-                <p>使用したアイコンのサイト</p>
-                <p><a href="https://icones.js.org/" target="_blank" rel="noopener noreferrer">Icônes</a></p>
-                <p>サイトのレイアウトや配色の参考にしたサイト</p>
-                <p><a href="https://uxmilk.jp/" target="_blank" rel="noopener noreferrer">UX MILK</a>
-                  <a href="https://tobalog.com/" target="_blank" rel="noopener noreferrer">トバログ</a></p>
-              </div>
+          <div class="article" v-else-if="isActive === 'D'">
+            <div class="title">
+              <h1>参考</h1>
+            </div>
+            <div class="contents">
+              <h2>書籍</h2>
+              <p>サイトのレイアウトや配色の参考にした書籍</p>
+              <p><a href="http://naruhodo-design.com/" target="_blank" rel="noopener noreferrer">なるほどデザイン</a></p>
+              <p>記事の内容を書く時に参考した書籍</p>
+              <p><a href="https://www.sbcr.jp/product/4797398212/" target="_blank" rel="noopener noreferrer">人を動かす「色」の科学</a></p>
+              <p><a href="https://www.amazon.co.jp/%E8%89%B2%E5%BD%A9%E5%AD%A6%E6%A6%82%E8%AA%AC-%E5%8D%83%E3%80%85%E5%B2%A9-%E8%8B%B1%E5%BD%B0/dp/4130820850" target="_blank" rel="noopener noreferrer">色彩学概論</a></p>
+              <p><a href="https://www.amazon.co.jp/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E8%89%B2%E5%BD%A9%E5%B7%A5%E5%AD%A6-%E8%B0%B7%E5%8F%A3-%E6%85%B6%E6%B2%BB/dp/4320123298" target="_blank" rel="noopener noreferrer">デジタル色彩工学</a></p>
+              <p>Vue.jsを学ぶ時に読んだ書籍</p>
+              <p><a href="https://www.amazon.co.jp/%E5%8B%95%E3%81%8B%E3%81%97%E3%81%A6%E5%AD%A6%E3%81%B6%EF%BC%81Vue-js%E9%96%8B%E7%99%BA%E5%85%A5%E9%96%80-%E6%A3%AE%E5%B7%A7%E5%B0%9A-ebook/dp/B07KPTGZ4C" target="_blank" rel="noopener noreferrer">動かして学ぶ！Vue.js開発入門</a></p>
+              <h2>Webサイト</h2>
+              <p>サイトのレイアウトや配色の参考にしたサイト</p>
+              <p><a href="https://uxmilk.jp/" target="_blank" rel="noopener noreferrer">UX MILK</a>
+                <a href="https://tobalog.com/" target="_blank" rel="noopener noreferrer">トバログ</a></p>
+              <p>記事の内容を書く時に参考にしたサイト</p>
+              <p><a href="https://ja.wikipedia.org/wiki/%E8%89%B2" target="_blank" rel="noopener noreferrer">色-Wikipedia</a></p>
+              <p><a href="https://www.ccs-inc.co.jp/museum/column/" target="_blank" rel="noopener noreferrer">コラム | 光と⾊の話</a></p>
+              <p>使用したアイコンのサイト</p>
+              <p><a href="https://icones.js.org/" target="_blank" rel="noopener noreferrer">Icônes</a></p>
             </div>
           </div>
         </div>
+      </div><!-- main終わり -->
 
-        <div class="footer">
-          <p>nohara naoto</p>
-        </div>
-
+      <div class="footer">
+        <p>&copy; 2021 nohara naoto </p>
       </div>
 
+    </div>
+    
     <script src="myscript.js"></script>
   </body>
 </html>
